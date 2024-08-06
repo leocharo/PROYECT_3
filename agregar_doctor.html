@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agregar Doctor</title>
+    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <link rel="stylesheet" href="fondo.css">
+</head>
+<body>
+    
+<div class="hero">
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+</div>
+    <div class="row">
+        <div class="medium-6 large-5 columns">
+            <h2>Agregar Doctor</h2>
+            <form id="doctorForm" enctype="multipart/form-data">
+                <label>Nombre
+                    <input type="text" name="nombre" required>
+                </label>
+                <label>Especialidad
+                    <input type="text" name="especialidad" required>
+                </label>
+                <label>Número de Licencia
+                    <input type="text" name="numero_licencia" required>
+                </label>
+                <label>Usuario
+                    <input type="text" name="username" required>
+                </label>
+                <label>Contraseña
+                    <input type="password" name="password" required>
+                </label>
+                <label>Foto (JPG o PNG)
+                    <input type="file" name="foto" accept=".jpg,.jpeg,.png" required>
+                </label>
+                <button type="button" class="button" onclick="agregarDoctor()">Agregar Doctor</button>
+            </form>
+            <div id="mensaje"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <script>
+        $(document).foundation();
+
+        function agregarDoctor() {
+            var formData = new FormData($("#doctorForm")[0]);
+
+            $.ajax({
+                type: "POST",
+                url: "insertar_doctor.php",
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    $("#mensaje").html(response);
+                },
+                error: function(xhr, status, error) {
+                    $("#mensaje").html("Error al agregar doctor: " + xhr.responseText);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

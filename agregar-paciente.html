@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Paciente</title>
+    <link rel="stylesheet" href="styless-paciente.css">
+    <link rel="stylesheet" media="all" href="style_fondo.css" />
+</head>
+<body>
+    <div class="container">
+        <h2>Agregar Paciente</h2>
+        <form id="pacienteForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+            
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" name="edad" required>
+            
+            <label for="grupo_sanguineo">Grupo Sanguíneo:</label>
+            <input type="text" id="grupo_sanguineo" name="grupo_sanguineo" required>
+            
+            <label for="alergico_medicamento">Alergias a Medicamentos:</label>
+            <textarea id="alergico_medicamento" name="alergico_medicamento"></textarea>
+            
+            <label for="diagnostico_medico">Diagnóstico Médico:</label>
+            <textarea id="diagnostico_medico" name="diagnostico_medico" required></textarea>
+            
+            <label for="tratamiento">Tratamiento:</label>
+            <textarea id="tratamiento" name="tratamiento" required></textarea>
+            
+            <label for="medico_responsable">Médico Responsable:</label>
+            <input type="text" id="medico_responsable" name="medico_responsable" required>
+            
+            <label for="numero_seguro_social">Número de Seguro Social:</label>
+            <input type="text" id="numero_seguro_social" name="numero_seguro_social" required>
+            
+            <label for="familiar_nombre">Nombre del Familiar:</label>
+            <input type="text" id="familiar_nombre" name="familiar_nombre" required>
+            
+            <label for="familiar_telefono">Teléfono del Familiar:</label>
+            <input type="text" id="familiar_telefono" name="familiar_telefono" required>
+            
+            <button type="button" onclick="agregarPaciente()">Agregar Paciente</button>
+            <button type="button" onclick="limpiarFormulario()">Limpiar</button>
+        </form>
+        <div id="mensaje"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="scripts-paciente.js"></script>
+</body>
+</html>
